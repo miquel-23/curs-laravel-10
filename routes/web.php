@@ -14,5 +14,24 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    //return view('welcome');
+    return "Pàgina d'inici";
+});
+
+Route::get('/notes', function () {
+    return 'Llista de notes';
+});
+
+Route::get('/notes/crear', function () {
+    return 'Crea nova nota';
+});
+
+Route::get('/cursos', function () {
+    return [
+        'Cursos' => [
+            'Curs de Laravel 10',
+            'Curs de programació orientada a objectes',
+            'Curs de Git',
+        ]
+    ];
 });

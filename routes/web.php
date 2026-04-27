@@ -22,8 +22,22 @@ Route::get('/notes', function () {
     return 'Llista de notes';
 });
 
+Route::get('/notes/{id}', function ($id) {
+    return 'Detall de la nota: ' . $id;
+});
+//})->whereNumber('id');
+//})->where('id', '\d+');
+
 Route::get('/notes/crear', function () {
     return 'Crea nova nota';
+});
+
+/*Route::get('/notes/editar', function () {
+    return 'Edita nota: ' . $_GET['id'];
+});*/
+
+Route::get('/notes/{id}/editar', function ($id) {
+    return 'Edita nota: ' . $id;
 });
 
 Route::get('/cursos', function () {

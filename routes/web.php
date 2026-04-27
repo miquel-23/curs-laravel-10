@@ -19,7 +19,8 @@ Route::get('/', function () {
 });
 
 Route::get('/notes', function () {
-    return 'Llista de notes';
+    //return 'Llista de notes';
+    return view('notes.index'); // -> resources/views/notes/index.blade.php
 });
 
 Route::get('/notes/{id}', function ($id) {
@@ -29,7 +30,8 @@ Route::get('/notes/{id}', function ($id) {
 //})->where('id', '\d+');
 
 Route::get('/notes/crear', function () {
-    return 'Crea nova nota';
+    //return 'Crea nova nota';
+    return view('notes.create'); // -> resources/views/notes/create.blade.php
 });
 
 /*Route::get('/notes/editar', function () {

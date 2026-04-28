@@ -20,7 +20,16 @@ Route::get('/', function () {
 
 Route::get('/notes', function () {
     //return 'Llista de notes';
-    return view('notes.index'); // -> resources/views/notes/index.blade.php
+    $notes = [
+        'Primera nota',
+        'Segona nota',
+        'Tercera nota',
+        'Quarta nota',
+        'Cinquena nota',
+        '<script>alert("Codi maliciós")</script>',
+    ];
+    // -> resources/views/notes/index.blade.php
+    return view('notes.index')->with('notes', $notes);
 });
 
 Route::get('/notes/{id}', function ($id) {

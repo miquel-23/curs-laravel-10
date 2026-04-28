@@ -30,6 +30,66 @@
         </header>
         <main class="content">
             <div class="cards">
+  
+                {{-- <?php foreach($notes as $nota): ?> --}}
+                {{-- @foreach($notes as $nota) --}}
+                @forelse($notes as $nota)
+                
+                    <div class="card card-small">
+                        <div class="card-body">
+                            <h4>{{ $nota }}</h4>
+
+                            {{ rand(1, 1000) }}
+
+                            <p>
+                                {{ $nota }}
+                            </p>
+                        </div>
+
+                        <footer class="card-footer">
+                            <a class="action-link action-edit">
+                                <i class="icon icon-pen"></i>
+                            </a>
+                            <a class="action-link action-delete">
+                                <i class="icon icon-trash"></i>
+                            </a>
+                        </footer>
+                    </div>
+                @empty
+                    <p>No tenim notes</p>
+                @endforelse
+                {{-- @endforeach --}}
+                {{-- <?php endforeach; ?> --}}
+
+                <div class="card card-small">
+                    <div class="card-body">
+                        <h4>Aprenent Blade</h4>
+
+                        @verbatim
+
+                        <p>
+                            Per a imprimir una variable amb Blade utilitzem aquesta sintaxis:<br>
+                            {{ $variable }}
+                        </p>
+
+                        <p>
+                            Les directives de Blade comencen amb arrova, per exemple:<br>
+                            @foreach
+                        </p>
+
+                        @endverbatim
+
+                    </div>
+
+                    <footer class="card-footer">
+                        <a class="action-link action-edit">
+                            <i class="icon icon-pen"></i>
+                        </a>
+                        <a class="action-link action-delete">
+                            <i class="icon icon-trash"></i>
+                        </a>
+                    </footer>
+                </div>
                 <div class="card card-small">
                     <div class="card-body">
                         <h4>¿Para qué sirve Composer?</h4>

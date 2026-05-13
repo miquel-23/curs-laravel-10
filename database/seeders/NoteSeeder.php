@@ -18,10 +18,10 @@ class NoteSeeder extends Seeder
             'title' => 'Aprenent Blade',
             'content' =>  <<< 'CONTENT'
                     Per a imprimir una variable amb Blade utilitzem aquesta sintaxis:
-                    {{ $variable }}
+                    `{{ $variable }}`
                 
                     Les directives de Blade comencen amb arrova, per exemple:
-                    @foreach
+                    `@foreach`
                     CONTENT,
         ]);
         DB::table('notes')->insert([
@@ -33,11 +33,11 @@ class NoteSeeder extends Seeder
             'content' =>  <<< 'CONTENT'
                 Hi ha 2 formes d'instal·lar Laravel: la primera és a través de Composer, el qual et permet instal·lar una versión específica de Laravel:
 
-                <pre>composer create-project laravel/laravel curso-laravel-styde "6.*"</pre>
+                `composer create-project laravel/laravel curso-laravel-10 "10.*"`
 
-                La segona és amb l'instal·lador de Laravel, el qual instal·larà la versió actual del framework:</p>
+                La segona és amb l'instal·lador de Laravel, el qual instal·larà la versió actual del framework:
 
-                <pre>laravel new curso-laravel-styde</pre>
+                `laravel new curs-laravel-10`
                 CONTENT,
         ]);
         DB::table('notes')->insert([
@@ -45,7 +45,7 @@ class NoteSeeder extends Seeder
             'content' =>  <<< 'CONTENT'
                 Recorda que si retornes un array en una ruta, Laravel el convertirà en JSON automàticament:
 
-                <pre>
+                ```
                     &lt;?php
 
                     Route::get('/', function () {
@@ -56,11 +56,14 @@ class NoteSeeder extends Seeder
                             ]
                         ];
                     });
-                </pre>
+                ```
 
-                Produïrà el següent resultat:</p>
-
+                Produïrà el següent resultat:
+                ```
+                
                 <code>{"Cursos":["Primers passos amb Laravel","Crea un tauler de control amb Laravel"]}</code>
+                
+                ```
                 CONTENT,
         ]);
         DB::table('notes')->insert([
@@ -70,11 +73,11 @@ class NoteSeeder extends Seeder
         DB::table('notes')->insert([
             'title' => 'Canvia el format de paràmetres dinàmics',
             'content' =>  <<< 'CONTENT'
-                    Pots col·locar el següent codi en el mètode <code>boot</code>
-                    de <code>app/Providers/RouteServiceProvider.php</code>
-                    per a restringir qualsevol paràmetre de les rutes a un format numèric:
+                Pots col·locar el següent codi en el mètode `boot` de `app/Providers/RouteServiceProvider.php` per a restringir qualsevol paràmetre de les rutes a un format numèric:
 
-                <pre>Route::pattern('nom-del-paràmetre', '\d+');</pre>
+                ```
+                Route::pattern('nom-del-paràmetre', '\d+');
+                ```
 
                 Pots per supost usar altres expressions regulars per a restringir a altres formats.
                 CONTENT,

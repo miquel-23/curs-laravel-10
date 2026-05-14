@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,21 +20,14 @@ Route::get('/', function () {
 });
 
 Route::get('/notes', function () {
-    //return 'Llista de notes';
-    $notes = [
-        'Primera nota',
-        'Segona nota',
-        'Tercera nota',
-        'Quarta nota',
-        'Cinquena nota',
-        '<script>alert("Codi maliciós")</script>',
-    ];
-    // -> resources/views/notes/index.blade.php
+    $notes = DB::table('notes')->orderByDesc('created_at')->get();
     return view('notes.index')->with('notes', $notes);
 })->name('notes.index');
 
 Route::get('/notes/{id}', function ($id) {
-    return 'Detall de la nota: ' . $id;
+    $nota = DB::table('notes')->find($id);
+    abort_if($nota === null, 404);
+    return 'Detall de la nota: id ' . $nota->id . ' - títol: ' . $nota->title . ' - contingut: ' . $nota->content;
 })->name('notes.view');
 //})->whereNumber('id');
 //})->where('id', '\d+');
@@ -48,5 +42,7 @@ Route::get('/notes/crear', function () {
 });*/
 
 Route::get('/notes/{id}/editar', function ($id) {
-    return 'Edita nota: ' . $id;
+    $nota = DB::table('notes')->find($id);
+    abort_if($nota === null, 404);
+    return 'Edita nota: ' . $nota->title;
 })->name('notes.edit');

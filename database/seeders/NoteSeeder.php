@@ -30,22 +30,26 @@ class NoteSeeder extends Seeder
         ]);
         DB::table('notes')->insert([
             'title' => 'Instal·lació de Laravel',
-            'content' =>  <<< 'CONTENT'
+            'content' =>  <<<'CONTENT'
                 Hi ha 2 formes d'instal·lar Laravel: la primera és a través de Composer, el qual et permet instal·lar una versión específica de Laravel:
 
-                `composer create-project laravel/laravel curso-laravel-10 "10.*"`
+                ```bash
+                composer create-project laravel/laravel curso-laravel-10 "10.*"
+                ```
 
                 La segona és amb l'instal·lador de Laravel, el qual instal·larà la versió actual del framework:
 
-                `laravel new curs-laravel-10`
+                ```bash
+                laravel new curs-laravel-10
+                ```
                 CONTENT,
         ]);
         DB::table('notes')->insert([
             'title' => 'Rutes i JSON',
-            'content' =>  <<< 'CONTENT'
+            'content' =>  <<<'CONTENT'
                 Recorda que si retornes un array en una ruta, Laravel el convertirà en JSON automàticament:
 
-                ```
+                ```bash
                     &lt;?php
 
                     Route::get('/', function () {
@@ -59,7 +63,7 @@ class NoteSeeder extends Seeder
                 ```
 
                 Produïrà el següent resultat:
-                ```
+                ```bash
                 
                 <code>{"Cursos":["Primers passos amb Laravel","Crea un tauler de control amb Laravel"]}</code>
                 
@@ -72,10 +76,10 @@ class NoteSeeder extends Seeder
         ]);
         DB::table('notes')->insert([
             'title' => 'Canvia el format de paràmetres dinàmics',
-            'content' =>  <<< 'CONTENT'
+            'content' =>  <<<'CONTENT'
                 Pots col·locar el següent codi en el mètode `boot` de `app/Providers/RouteServiceProvider.php` per a restringir qualsevol paràmetre de les rutes a un format numèric:
 
-                ```
+                ```bash
                 Route::pattern('nom-del-paràmetre', '\d+');
                 ```
 

@@ -10,17 +10,15 @@
                 
                     <div class="card card-small">
                         <div class="card-body">
-                            <h4>{{ $nota }}</h4>
-
-                            {{ rand(1, 1000) }}
+                            <h4>{{ $nota->title }}</h4>
 
                             <p>
-                                {{ $nota }}
+                                {{ $nota->content }}
                             </p>
                         </div>
 
                         <footer class="card-footer">
-                            <a href="{{ route('notes.edit', ['id' => $loop->iteration]) }}" class="action-link action-edit">
+                            <a href="{{ route('notes.edit', ['id' => $nota->id]) }}" class="action-link action-edit">
                                 <i class="icon icon-pen"></i>
                             </a>
                             <a class="action-link action-delete">

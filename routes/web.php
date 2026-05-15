@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Note;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 
@@ -20,7 +21,8 @@ Route::get('/', function () {
 });
 
 Route::get('/notes', function () {
-    $notes = DB::table('notes')->orderByDesc('created_at')->get();
+    //$notes = DB::table('notes')->orderByDesc('created_at')->get();
+    $notes = Note::query()->orderByDesc('id')->get();
     return view('notes.index')->with('notes', $notes);
 })->name('notes.index');
 
@@ -42,7 +44,8 @@ Route::get('/notes/crear', function () {
 });*/
 
 Route::get('/notes/{id}/editar', function ($id) {
-    $nota = DB::table('notes')->find($id);
-    abort_if($nota === null, 404);
+    //$nota = DB::table('notes')->find($id);
+    $nota = Note::findOrFail($id);
+    //abort_if($nota === null, 404);
     return 'Edita nota: ' . $nota->title;
 })->name('notes.edit');
